@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3DD490B91C46DB73007F6DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490B81C46DB73007F6DA9 /* AppDelegate.swift */; };
-		3DD490BB1C46DB73007F6DA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490BA1C46DB73007F6DA9 /* ViewController.swift */; };
 		3DD490BE1C46DB74007F6DA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD490BC1C46DB74007F6DA9 /* Main.storyboard */; };
 		3DD490C01C46DB74007F6DA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD490BF1C46DB74007F6DA9 /* Assets.xcassets */; };
 		3DD490C31C46DB74007F6DA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD490C11C46DB74007F6DA9 /* LaunchScreen.storyboard */; };
 		3DD490CE1C46DB74007F6DA9 /* Flickr_CloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490CD1C46DB74007F6DA9 /* Flickr_CloneTests.swift */; };
 		3DD490D91C46DB74007F6DA9 /* Flickr_CloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490D81C46DB74007F6DA9 /* Flickr_CloneUITests.swift */; };
+		3DD490EB1C46DBF9007F6DA9 /* FlickrHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490EA1C46DBF9007F6DA9 /* FlickrHelper.swift */; };
+		3DD490EF1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490EE1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift */; };
+		3DD490F31C48181E007F6DA9 /* FlickrSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490F21C48181E007F6DA9 /* FlickrSearcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +37,20 @@
 
 /* Begin PBXFileReference section */
 		3DD490B51C46DB73007F6DA9 /* Flickr Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DD490B81C46DB73007F6DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DD490BA1C46DB73007F6DA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DD490B81C46DB73007F6DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Flickr Clone/AppDelegate.swift"; sourceTree = "<group>"; };
 		3DD490BD1C46DB74007F6DA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3DD490BF1C46DB74007F6DA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DD490BF1C46DB74007F6DA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Flickr Clone/Assets.xcassets"; sourceTree = "<group>"; };
 		3DD490C21C46DB74007F6DA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3DD490C41C46DB74007F6DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DD490C41C46DB74007F6DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Flickr Clone/Info.plist"; sourceTree = "<group>"; };
 		3DD490C91C46DB74007F6DA9 /* Flickr CloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr CloneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD490CD1C46DB74007F6DA9 /* Flickr_CloneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr_CloneTests.swift; sourceTree = "<group>"; };
 		3DD490CF1C46DB74007F6DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DD490D41C46DB74007F6DA9 /* Flickr CloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr CloneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD490D81C46DB74007F6DA9 /* Flickr_CloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr_CloneUITests.swift; sourceTree = "<group>"; };
 		3DD490DA1C46DB74007F6DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DD490EA1C46DBF9007F6DA9 /* FlickrHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrHelper.swift; sourceTree = "<group>"; };
+		3DD490EE1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FickrPhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		3DD490F21C48181E007F6DA9 /* FlickrSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +81,13 @@
 		3DD490AC1C46DB73007F6DA9 = {
 			isa = PBXGroup;
 			children = (
-				3DD490B71C46DB73007F6DA9 /* Flickr Clone */,
+				3DD490F01C473474007F6DA9 /* View */,
+				3DD490F11C47347F007F6DA9 /* Controllers */,
 				3DD490CC1C46DB74007F6DA9 /* Flickr CloneTests */,
 				3DD490D71C46DB74007F6DA9 /* Flickr CloneUITests */,
 				3DD490B61C46DB73007F6DA9 /* Products */,
+				3DD490C41C46DB74007F6DA9 /* Info.plist */,
+				3DD490BF1C46DB74007F6DA9 /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,19 +99,6 @@
 				3DD490D41C46DB74007F6DA9 /* Flickr CloneUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3DD490B71C46DB73007F6DA9 /* Flickr Clone */ = {
-			isa = PBXGroup;
-			children = (
-				3DD490B81C46DB73007F6DA9 /* AppDelegate.swift */,
-				3DD490BA1C46DB73007F6DA9 /* ViewController.swift */,
-				3DD490BC1C46DB74007F6DA9 /* Main.storyboard */,
-				3DD490BF1C46DB74007F6DA9 /* Assets.xcassets */,
-				3DD490C11C46DB74007F6DA9 /* LaunchScreen.storyboard */,
-				3DD490C41C46DB74007F6DA9 /* Info.plist */,
-			);
-			path = "Flickr Clone";
 			sourceTree = "<group>";
 		};
 		3DD490CC1C46DB74007F6DA9 /* Flickr CloneTests */ = {
@@ -123,6 +117,26 @@
 				3DD490DA1C46DB74007F6DA9 /* Info.plist */,
 			);
 			path = "Flickr CloneUITests";
+			sourceTree = "<group>";
+		};
+		3DD490F01C473474007F6DA9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DD490BC1C46DB74007F6DA9 /* Main.storyboard */,
+				3DD490C11C46DB74007F6DA9 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3DD490F11C47347F007F6DA9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3DD490EE1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift */,
+				3DD490EA1C46DBF9007F6DA9 /* FlickrHelper.swift */,
+				3DD490F21C48181E007F6DA9 /* FlickrSearcher.swift */,
+				3DD490B81C46DB73007F6DA9 /* AppDelegate.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD490BB1C46DB73007F6DA9 /* ViewController.swift in Sources */,
+				3DD490EB1C46DBF9007F6DA9 /* FlickrHelper.swift in Sources */,
 				3DD490B91C46DB73007F6DA9 /* AppDelegate.swift in Sources */,
+				3DD490EF1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift in Sources */,
+				3DD490F31C48181E007F6DA9 /* FlickrSearcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +315,7 @@
 				3DD490BD1C46DB74007F6DA9 /* Base */,
 			);
 			name = Main.storyboard;
+			path = "Flickr Clone";
 			sourceTree = "<group>";
 		};
 		3DD490C11C46DB74007F6DA9 /* LaunchScreen.storyboard */ = {
@@ -307,6 +324,7 @@
 				3DD490C21C46DB74007F6DA9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = "Flickr Clone";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
