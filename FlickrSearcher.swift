@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let apiKey = "32036da6f917a5a5bf879ce5ba1b6863"
+let apiKey = "0ff53deaa3d0462576446bb28eab1edc"
 
 struct FlickrSearchResults {
   let searchTerm : String
@@ -107,7 +107,7 @@ class Flickr {
       
       switch (resultsDictionary!["stat"] as! String) {
       case "ok":
-        println("Results processed OK")
+        print("Results processed OK")
       case "fail":
         let APIError = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey:resultsDictionary!["message"]!])
         completion(results: nil, error: APIError)
