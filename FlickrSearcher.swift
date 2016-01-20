@@ -36,7 +36,7 @@ class FlickrPhoto : Equatable {
   }
   
   func loadLargeImage(completion: (flickrPhoto:FlickrPhoto, error: NSError?) -> Void) {
-    let loadURL = flickrImageURL(size: "b")
+    let loadURL = flickrImageURL("b")
     let loadRequest = NSURLRequest(URL:loadURL)
     NSURLConnection.sendAsynchronousRequest(loadRequest,
       queue: NSOperationQueue.mainQueue()) {
@@ -48,7 +48,7 @@ class FlickrPhoto : Equatable {
         }
         
         if data != nil {
-          let returnedImage = UIImage(data: data)
+          let returnedImage = UIImage(data: data!)
           self.largeImage = returnedImage
           completion(flickrPhoto: self, error: nil)
           return
@@ -97,13 +97,21 @@ class Flickr {
         completion(results: nil,error: error)
         return
       }
-      
-      var JSONError : NSError?
-      let resultsDictionary = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(0), error: &JSONError) as? NSDictionary
-      if JSONError != nil {
-        completion(results: nil, error: JSONError)
-        return
-      }
+        
+        do {
+            if let resultsDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                print(resultsDictionary)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+//      var JSONError : NSError?
+//      let resultsDictionary = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(0), error: &JSONError) as? NSDictionary
+//      if JSONError != nil {
+//        completion(results: nil, error: JSONError)
+//        return
+//      }
       
       switch (resultsDictionary!["stat"] as! String) {
       case "ok":

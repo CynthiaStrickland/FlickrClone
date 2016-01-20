@@ -44,18 +44,18 @@ extension FickrPhotosCollectionViewController : UITextFieldDelegate {
         textField.addSubview(activityIndicator)
         activityIndicator.frame = textField.bounds
         activityIndicator.startAnimating()
-        flickr.searchFlickrForTerm(textField.text) {
+        flickr.searchFlickrForTerm(textField.text!) {
             results, error in
             
             //2
             activityIndicator.removeFromSuperview()
             if error != nil {
-                println("Error searching : \(error)")
+                print("Error searching : \(error)")
             }
             
             if results != nil {
                 //3
-                println("Found \(results!.searchResults.count) matching \(results!.searchTerm)")
+                print("Found \(results!.searchResults.count) matching \(results!.searchTerm)")
                 self.searches.insert(results!, atIndex: 0)
                 
                 //4
@@ -69,7 +69,7 @@ extension FickrPhotosCollectionViewController : UITextFieldDelegate {
     }
 }
 
-extension FickrPhotosCollectionViewController : UICollectionViewDataSource {
+extension FickrPhotosCollectionViewController {
     
     //1
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
