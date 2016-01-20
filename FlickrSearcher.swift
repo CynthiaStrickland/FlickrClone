@@ -35,27 +35,27 @@ class FlickrPhoto : Equatable {
     return NSURL(string: "http://farm\(farm).staticflickr.com/\(server)/\(photoID)_\(secret)_\(size).jpg")!
   }
   
-  func loadLargeImage(completion: (flickrPhoto:FlickrPhoto, error: NSError?) -> Void) {
-    let loadURL = flickrImageURL("b")
-    let loadRequest = NSURLRequest(URL:loadURL)
-    NSURLConnection.sendAsynchronousRequest(loadRequest,
-      queue: NSOperationQueue.mainQueue()) {
-        response, data, error in
-        
-        if error != nil {
-          completion(flickrPhoto: self, error: error)
-          return
+    func loadLargeImage(completion: (flickrPhoto:FlickrPhoto, error: NSError?) -> Void) {
+        let loadURL = flickrImageURL("b")
+        let loadRequest = NSURLRequest(URL:loadURL)
+        NSURLConnection.sendAsynchronousRequest(loadRequest,
+            queue: NSOperationQueue.mainQueue()) {
+                response, data, error in
+                
+                if error != nil {
+                    completion(flickrPhoto: self, error: error)
+                    return
+                }
+                
+                if data != nil {
+                    let returnedImage = UIImage(data: data!)
+                    self.largeImage = returnedImage
+                    completion(flickrPhoto: self, error: nil)
+                    return
+                }
+                
+                completion(flickrPhoto: self, error: nil)
         }
-        
-        if data != nil {
-          let returnedImage = UIImage(data: data!)
-          self.largeImage = returnedImage
-          completion(flickrPhoto: self, error: nil)
-          return
-        }
-        
-        completion(flickrPhoto: self, error: nil)
-    }
   }
   
   func sizeToFillWidthOfSize(size:CGSize) -> CGSize {
@@ -92,27 +92,20 @@ class Flickr {
     
     let searchURL = flickrSearchURLForSearchTerm(searchTerm)
     let searchRequest = NSURLRequest(URL: searchURL)
-    NSURLConnection.sendAsynchronousRequest(searchRequest, queue: processingQueue) {response, data, error in
+    NSURLSession.dataTaskWithRequest(searchRequest, queue: processingQueue) {response, data, error in
       if error != nil {
         completion(results: nil,error: error)
         return
       }
         
-        do {
-            if let resultsDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                print(resultsDictionary)
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription)
+    var JSONError : NSError?
+    do {
+        let resultsDictionary = try NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(rawValue: 0)) as? NSDictionary
+        if JSONError != nil {
+            completion(results: nil, error: JSONError)
+            return
         }
-        
-//      var JSONError : NSError?
-//      let resultsDictionary = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(0), error: &JSONError) as? NSDictionary
-//      if JSONError != nil {
-//        completion(results: nil, error: JSONError)
-//        return
-//      }
-      
+
       switch (resultsDictionary!["stat"] as! String) {
       case "ok":
         print("Results processed OK")
@@ -125,7 +118,7 @@ class Flickr {
         completion(results: nil, error: APIError)
         return
       }
-      
+        
       let photosContainer = resultsDictionary!["photos"] as! NSDictionary
       let photosReceived = photosContainer["photo"] as! [NSDictionary]
       
@@ -150,13 +143,12 @@ class Flickr {
       })
     }
   }
+    }
   
-  private func flickrSearchURLForSearchTerm(searchTerm:String) -> NSURL {
-    
-    let escapedTerm = searchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-    let URLString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(escapedTerm)&per_page=20&format=json&nojsoncallback=1"
-    return NSURL(string: URLString)!
-  }
-  
-  
+    func flickrSearchURLForSearchTerm(searchTerm:String) -> NSURL {
+        
+        let escapedTerm = searchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        let URLString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(escapedTerm)&per_page=20&format=json&nojsoncallback=1"
+        return NSURL(string: URLString)!
+    }
 }

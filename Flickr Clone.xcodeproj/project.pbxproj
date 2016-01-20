@@ -16,6 +16,7 @@
 		3DD490EB1C46DBF9007F6DA9 /* FlickrHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490EA1C46DBF9007F6DA9 /* FlickrHelper.swift */; };
 		3DD490EF1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490EE1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift */; };
 		3DD490F31C48181E007F6DA9 /* FlickrSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490F21C48181E007F6DA9 /* FlickrSearcher.swift */; };
+		3DD490F51C4F302D007F6DA9 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD490F41C4F302D007F6DA9 /* FlickrPhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3DD490EA1C46DBF9007F6DA9 /* FlickrHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrHelper.swift; sourceTree = "<group>"; };
 		3DD490EE1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FickrPhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		3DD490F21C48181E007F6DA9 /* FlickrSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrSearcher.swift; sourceTree = "<group>"; };
+		3DD490F41C4F302D007F6DA9 /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				3DD490EE1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift */,
+				3DD490F41C4F302D007F6DA9 /* FlickrPhotoCell.swift */,
 				3DD490EA1C46DBF9007F6DA9 /* FlickrHelper.swift */,
 				3DD490F21C48181E007F6DA9 /* FlickrSearcher.swift */,
 				3DD490B81C46DB73007F6DA9 /* AppDelegate.swift */,
@@ -272,6 +275,7 @@
 			files = (
 				3DD490EB1C46DBF9007F6DA9 /* FlickrHelper.swift in Sources */,
 				3DD490B91C46DB73007F6DA9 /* AppDelegate.swift in Sources */,
+				3DD490F51C4F302D007F6DA9 /* FlickrPhotoCell.swift in Sources */,
 				3DD490EF1C473423007F6DA9 /* FickrPhotosCollectionViewController.swift in Sources */,
 				3DD490F31C48181E007F6DA9 /* FlickrSearcher.swift in Sources */,
 			);
